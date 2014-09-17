@@ -1,0 +1,23 @@
+
+.container
+  br
+  br
+  h1 Social Network
+
+  .row
+    .col-md-12
+      =form_for(@post,:remote=>true,:html => { :multipart => true }) do |f|
+        .form-group
+          label Photo
+          =f.file_field :photos
+        .form-group
+          label Content
+          =f.text_area :content,:class=>"form-control"
+        =f.submit "Post",:class=>"btn btn-success"
+
+  br
+  h1 Wall Post
+  .row
+    .col-md-12
+      .posts-list
+        =render @posts

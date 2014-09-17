@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: social_networking_development
+  pool: 5
+  username: postgres
+  password: admin
+  host: localhost
+ 
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: social_networking_test
+  pool: 5
+  username: postgres
+  password: admin
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: social_networking_production
+  pool: 5
+  username: postgres
+  password: admin
+  host: localhost

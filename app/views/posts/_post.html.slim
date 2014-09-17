@@ -1,0 +1,21 @@
+.panel.panel-default id="#{post.id}_panel"
+  .panel-body
+    =image_tag(post.photos.url) if post.photos.present?
+    =raw post.content
+    br
+    br
+    =link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?',remote: 'true' },:class=>"btn btn-danger"
+    h3 Comments
+
+    .comments-list
+      -post.comments.each do |c|
+        =c.content
+        =render 'comment',:comment=>c
+
+    =form_for(@comment,:remote=>true) do |f| 
+      =f.hidden_field :post_id,:value=>post.id
+      
+      =f.text_area :content,:class=>"form-control"
+      br
+      =f.submit "Add Comment",:class=>"btn btn-success"
+

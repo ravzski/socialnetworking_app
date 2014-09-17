@@ -1,0 +1,5 @@
+.panel.panel-success id="#{comment.id}_comment_panel"
+  .panel-body
+    =raw comment.content
+    br
+    =link_to 'X', comment, method: :delete, data: { confirm: 'Are you sure?',remote: 'true' },:class=>"btn btn-danger"
